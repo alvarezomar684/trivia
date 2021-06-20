@@ -25,14 +25,14 @@ let questionIndex = 0;
 
 
 
-const scoreStorage = () => {
-    if(typeof Storage !== "undefined") {
-      localStorage.setItem("score",JSON.stringify(score));
+// const scoreStorage = () => {
+//     if(typeof Storage !== "undefined") {
+//       localStorage.setItem("score",JSON.stringify(score));
       
-  } else {
-    alert("Tu navegador no es compatible con local storage");
-  }
-  };
+//   } else {
+//     alert("Tu navegador no es compatible con local storage");
+//   }
+//   };
 
 
 
@@ -198,6 +198,7 @@ const letsGo = () => {
                 
             // }
 
+            //boton respuesta correcta
             let buttTrueB = document.createElement("button");
             buttTrueB.setAttribute("class","butt-corr-ans-b");
             divAnsB.appendChild(buttTrueB);
@@ -300,6 +301,7 @@ const letsGo = () => {
 
     //Resultados
     let playerScore = document.getElementById("player-score");
+    playerScore.innerText = `${score}`;
 
     //Jugador
     let playerInfo = document.getElementById("name").value;
