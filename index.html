@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia</title>
+    <link rel="stylesheet" href="trivia.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="container">
+        <header class="title">
+            <h1>trivia</h1>
+        </header>        
+        <form action="" id="trivia">
+            <div id="section-01" class="section">
+                <label for="">nombre del concursante</label>
+                <input type="text" name="" id="name"> 
+            </div>
+            <div id="section-02" class="section">
+                <label for="">numero de preguntas</label>
+                <input type="number" id="amount" min="0" class="amount" value="3" /> <!--Moverlo a 10 el value-->
+            </div>
+            <div id="section-03" class="section">
+                <label for="">categoria</label>
+                <select name="" id="category">
+                    <option value="0">Cualquier categoría</option>
+                    <option value="9">Cultura general</option>
+                    <option value="10">Libros</option>
+                    <option value="11">Películas</option>
+                    <option value="12">Música</option>
+                    <option value="13">Musicales y teatros</option>
+                    <option value="14">Televisión</option>
+                    <option value="15">Videojuegos</option>
+                    <option value="16">Juegos de mesa</option>
+                    <option value="17">Ciencia y naturaleza</option>
+                    <option value="18">Computación</option>
+                    <option value="19">Matemáticas</option>
+                    <option value="20">Mitología</option>
+                    <option value="21">Deportes</option>
+                    <option value="22">Geografía</option>
+                    <option value="23">Historia</option>
+                    <option value="24">Política</option>
+                    <option value="25">Arte</option>
+                    <option value="26">Celebridades</option>
+                    <option value="27">Animales</option>
+                    <option value="28">Autos</option>
+                    <option value="29">Comics</option>
+                    <option value="30">Gadgets</option>
+                    <option value="31">Ánime y manga</option>
+                    <option value="32">Caricaturas</option>
+                  </select>
+            </div>
+            <div id="section-04" class="section">
+                <label for="">dificultad</label>
+                <select name="" id="difficulty">
+                    <option value="0">Cualquier dificultad</option>
+                    <option value="easy">Fácil</option>
+                    <option value="medium">Moderada</option>
+                    <option value="hard">Difícil</option>
+                  </select>
+            </div>
+            <div id="section-05" class="section">
+                <label for="">tipo de pregunta</label>
+                <select name="" id="type">
+                    <option value="0">Cualquier tipo</option>
+                    <option value="multiple">Opción Múltiple</option>
+                    <option value="boolean">Verdadero / Falso</option>
+                  </select>
+            </div>
+            <button id="start">comenzar</button>                    
+            <button>ver resultados</button>                          
+        </form>
+        <div action="" id="showtime" class="showtime hidden">            
+        </div>
+        <div id="score-container" class="hidden">
+            <h3 id="player"></h3>            
+            <h3>score is</h3>
+            <span id="player-score"></span>
+            <button id="play-again">Play Again</button>
+        </div>
+
+        <!-- <form action="" id="showtime">
+        </form> -->
+        <footer>proyecto realizado por omar alvarez &copy; academlo</footer>
+    </section>
+    <script src="trivia.js"></script>
+    <!-- <embed src="/sound/fondoSoundAlien - lower.mp3" autostarty="true" loop="true"  width="0" height="0" type=""> -->
+    <audio src="/sound/fondoSoundAlien - lower.mp3" autoplay="autoplay" loop="loop"  preload="preload"></audio>
+    
+</body>
+</html>

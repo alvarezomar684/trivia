@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(/img/fondo\ 5.jpg);
+    /* background-repeat: repeat-y; */
+    /* background-repeat: no-repeat;
+    background-size: 100%; */
+    color: white;
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+    height: 1000px;
+    width: 700px;
+    margin: 0px auto;
+    margin-top: 100px;
+    /* background-color: white; */
+}
+
+.title {
+    /* border: 2px solid pink; */
+    margin: 0px auto;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+#trivia {
+    /* border: 2px solid white; */
+    width: 340px;
+    height: 700px;
+    margin-top: 100px;  
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px auto;
+    
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+}
+
+/* #section-01 {
+    border: 2px solid blue;
+}
+
+#section-02 {
+    border: 2px solid green;
+}
+
+#section-03 {
+    border: 2px solid yellow;
+}
+
+#section-04 {
+    border: 2px solid red;
+}
+
+#section-05 {
+    border: 2px solid pink;
+}
+
+#section-06 {
+    border: 2px solid purple;
+} */
+
+#trivia > div > input {
+    height: 35px;
+    border-radius: 10px;
+    border: 2px solid #01937C;
+    font-size: 17px;
+    color: #005A8D;
+}
+
+.amount {
+    text-align: center;
+}
+
+#trivia > div > select {
+    height: 40px;
+    border-radius: 7px;
+    text-transform: capitalize;
+    font-size: 15px;
+}
+
+#trivia > div > label {
+    font-size: 17px;
+    color: white;
+    text-transform: uppercase;    
+    font-family: 'Viaoda Libre', cursive;
+    
+}
+
+#trivia > button {
+    height: 50px;
+    border-radius: 7px;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #192742;
+    background-color: #34c1c1;
+    font-weight: bold;
+    border: 2px solid #F0EBCC;
+}
+
+footer {
+    margin: 0px auto;
+    /* border: 2px solid red; */
+    text-transform: uppercase;
+    font-size:24px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.showtime {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0px auto;   
+    border: 2px solid white;
+    height: 100px;    
+}
+
+.showtime > h3 {
+    text-align: center;    
+}
+
+.answers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.answers > button {
+    width: 45%;    
+}
+
+/* .answers > button:first-child {
+    width: 45%;
+}
+
+.answers > button:nth-child(2) {
+    width: 45%;
+} */
+
