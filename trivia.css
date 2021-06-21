@@ -52,30 +52,6 @@ body {
     text-transform: capitalize;
 }
 
-/* #section-01 {
-    border: 2px solid blue;
-}
-
-#section-02 {
-    border: 2px solid green;
-}
-
-#section-03 {
-    border: 2px solid yellow;
-}
-
-#section-04 {
-    border: 2px solid red;
-}
-
-#section-05 {
-    border: 2px solid pink;
-}
-
-#section-06 {
-    border: 2px solid purple;
-} */
-
 #trivia > div > input {
     height: 35px;
     border-radius: 10px;

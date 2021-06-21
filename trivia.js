@@ -6,12 +6,10 @@ let amountInput = document.getElementById("amount");
 let categoryselect = document.getElementById("category");
 let difficultyselect = document.getElementById("difficulty");
 let typeselect = document.getElementById("type");
-
 let showtimeForm = document.getElementById("showtime");
-
 let startGame = document.getElementById("start");
-
 let scoreDivContainer = document.getElementById("score-container");
+
 
 // let scoreLocalStorage = JSON.parse(localStorage.getItem("score"));
 
@@ -61,6 +59,8 @@ const letsGo = () => {
     
     triviaForm.setAttribute("class","hidden");
     showtimeForm.removeAttribute("class","hidden");
+
+    let difficulty = questionsApi[0].difficulty;
     
 
     for(let i=0; i < questionsApi.length; i++){       
@@ -106,6 +106,18 @@ const letsGo = () => {
             const newStylesBCAM = () => {                
                 buttCorrAnsM.style.backgroundColor = "#34c147"
             }
+
+            if(questionsApi[0].difficulty === "hard") {
+                buttCorrAnsM.style.border = "2px solid red"  
+            }
+
+            if(questionsApi[0].difficulty === "medium") {
+                buttCorrAnsM.style.border = "2px solid yellow"  
+            }
+
+            if(questionsApi[0].difficulty === "easy") {
+                buttCorrAnsM.style.border = "2px solid green"  
+            }
             
 
             //Botones Respuestas incorrectas
@@ -120,12 +132,22 @@ const letsGo = () => {
                 const newStylesBIAM = () => {
                     buttIncAnsM.style.backgroundColor = "#34c147"   
                 }
+
+                if(questionsApi[0].difficulty === "hard") {
+                    buttIncAnsM.style.border = "2px solid red"  
+                }
+    
+                if(questionsApi[0].difficulty === "medium") {
+                    buttIncAnsM.style.border = "2px solid yellow"  
+                }
+    
+                if(questionsApi[0].difficulty === "easy") {
+                    buttIncAnsM.style.border = "2px solid green"  
+                }
                 
-                //Ocultando botones de mas
-                // console.log(buttIncAnsM.innerText);
+                //Ocultando botones de mas                
                 if(buttIncAnsM.innerText === "undefined"){
-                buttIncAnsM.setAttribute("class","hidden");
-                // console.log("necesito elmininarte")
+                buttIncAnsM.setAttribute("class","hidden");                
                 }
                 
             }
@@ -172,6 +194,18 @@ const letsGo = () => {
                 const newStylesBIAB = () => {
                     buttIncAnsB.style.backgroundColor = "#34c147"   
                 }
+
+                if(questionsApi[0].difficulty === "hard") {
+                    buttIncAnsB.style.border = "2px solid red"  
+                }
+    
+                if(questionsApi[0].difficulty === "medium") {
+                    buttIncAnsB.style.border = "2px solid yellow"  
+                }
+    
+                if(questionsApi[0].difficulty === "easy") {
+                    buttIncAnsB.style.border = "2px solid green"  
+                }
             }            
 
             //boton respuesta correcta
@@ -187,6 +221,17 @@ const letsGo = () => {
                 buttTrueB.style.backgroundColor = "#34c147"  
             }
             
+            if(questionsApi[0].difficulty === "hard") {
+                buttTrueB.style.border = "2px solid red"  
+            }
+
+            if(questionsApi[0].difficulty === "medium") {
+                buttTrueB.style.border = "2px solid yellow"  
+            }
+
+            if(questionsApi[0].difficulty === "easy") {
+                buttTrueB.style.border = "2px solid green"  
+            }
 
             let correctAnsBoo = questionsApi[i].correct_answer;       
             
@@ -231,7 +276,7 @@ const letsGo = () => {
     //Boton Regreso al juego
     let playAgain = document.getElementById("play-again");
     playAgain.addEventListener("click", () => returnGame ());    
-
+    
 }
 
 const hiddenAll = () => {
@@ -243,11 +288,6 @@ const hiddenAll = () => {
 const returnGame = () => {    
     location.reload();    
 }
-
-
-
-
-
 
 
 
