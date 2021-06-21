@@ -1,4 +1,3 @@
-// let score = [];
 let score = 0;
 let player ="";
 let triviaForm = document.getElementById("trivia");
@@ -9,30 +8,9 @@ let typeselect = document.getElementById("type");
 let showtimeForm = document.getElementById("showtime");
 let startGame = document.getElementById("start");
 let scoreDivContainer = document.getElementById("score-container");
-
-
-// let scoreLocalStorage = JSON.parse(localStorage.getItem("score"));
-
-// if (scoreLocalStorage === null) {
-//     scoreLocalStorage = [];
-// }
-
     
 let questionsApi = 0;
 let questionIndex = 0;
-
-
-
-// const scoreStorage = () => {
-//     if(typeof Storage !== "undefined") {
-//       localStorage.setItem("score",JSON.stringify(score));
-      
-//   } else {
-//     alert("Tu navegador no es compatible con local storage");
-//   }
-//   };
-
-
 
 
 let getApiData = (event) => {    
@@ -51,12 +29,8 @@ let getApiData = (event) => {
 }
 
 
-
-
 const letsGo = () => {
 
-    console.log(questionsApi);
-    
     triviaForm.setAttribute("class","hidden");
     showtimeForm.removeAttribute("class","hidden");
 
@@ -66,8 +40,7 @@ const letsGo = () => {
     for(let i=0; i < questionsApi.length; i++){       
 
         //Preguntas
-        let questions = questionsApi[i].question;
-        // console.log(questions);
+        let questions = questionsApi[i].question;        
 
         //Contenedores del juego
         let divGame = document.createElement("div");
@@ -83,8 +56,7 @@ const letsGo = () => {
         //botones para respuestas
         let typeGame = questionsApi[0].type;
 
-        //Multiples        
-
+        //Multiples 
         if(typeGame === "multiple"){
 
             console.log()
@@ -107,15 +79,15 @@ const letsGo = () => {
                 buttCorrAnsM.style.backgroundColor = "#34c147"
             }
 
-            if(questionsApi[0].difficulty === "hard") {
+            if(difficulty === "hard") {
                 buttCorrAnsM.style.border = "2px solid red"  
             }
 
-            if(questionsApi[0].difficulty === "medium") {
+            if(difficulty === "medium") {
                 buttCorrAnsM.style.border = "2px solid yellow"  
             }
 
-            if(questionsApi[0].difficulty === "easy") {
+            if(difficulty === "easy") {
                 buttCorrAnsM.style.border = "2px solid green"  
             }
             
@@ -133,15 +105,15 @@ const letsGo = () => {
                     buttIncAnsM.style.backgroundColor = "#34c147"   
                 }
 
-                if(questionsApi[0].difficulty === "hard") {
+                if(difficulty === "hard") {
                     buttIncAnsM.style.border = "2px solid red"  
                 }
     
-                if(questionsApi[0].difficulty === "medium") {
+                if(difficulty === "medium") {
                     buttIncAnsM.style.border = "2px solid yellow"  
                 }
     
-                if(questionsApi[0].difficulty === "easy") {
+                if(difficulty === "easy") {
                     buttIncAnsM.style.border = "2px solid green"  
                 }
                 
@@ -150,23 +122,14 @@ const letsGo = () => {
                 buttIncAnsM.setAttribute("class","hidden");                
                 }
                 
-            }
+            }          
 
-          
-
-            let correctAnsMul = questionsApi[i].correct_answer; 
-
+            let correctAnsMul = questionsApi[i].correct_answer;
             const incrementScoreCorrect = () => {            
                 
-                if(buttCorrAnsM.innerText === correctAnsMul){
-                    
-                    // console.log("incremento con True") 
-                    score += 1;   
-                    console.log(score);
-                    // let score = JSON.parse(localStorage.getItem("score"));
-                    // scoreStorage();
-                    playerScore.innerText = `${score}`;                    
-                        
+                if(buttCorrAnsM.innerText === correctAnsMul){                    
+                    score += 1;                                       
+                    playerScore.innerText = `${score}`;                        
                 }                                           
             
         }
@@ -174,7 +137,6 @@ const letsGo = () => {
             
 
         } if (typeGame === "boolean") {
-
             
             //Contenedores de los botones respuesta            
             let divAnsB = document.createElement("div");
@@ -195,15 +157,15 @@ const letsGo = () => {
                     buttIncAnsB.style.backgroundColor = "#34c147"   
                 }
 
-                if(questionsApi[0].difficulty === "hard") {
+                if(difficulty=== "hard") {
                     buttIncAnsB.style.border = "2px solid red"  
                 }
     
-                if(questionsApi[0].difficulty === "medium") {
+                if(difficulty === "medium") {
                     buttIncAnsB.style.border = "2px solid yellow"  
                 }
     
-                if(questionsApi[0].difficulty === "easy") {
+                if(difficulty === "easy") {
                     buttIncAnsB.style.border = "2px solid green"  
                 }
             }            
@@ -221,34 +183,25 @@ const letsGo = () => {
                 buttTrueB.style.backgroundColor = "#34c147"  
             }
             
-            if(questionsApi[0].difficulty === "hard") {
+            if(difficulty === "hard") {
                 buttTrueB.style.border = "2px solid red"  
             }
 
-            if(questionsApi[0].difficulty === "medium") {
+            if(difficulty === "medium") {
                 buttTrueB.style.border = "2px solid yellow"  
             }
 
-            if(questionsApi[0].difficulty === "easy") {
+            if(difficulty === "easy") {
                 buttTrueB.style.border = "2px solid green"  
             }
 
-            let correctAnsBoo = questionsApi[i].correct_answer;       
-            
-            
-
-
+            let correctAnsBoo = questionsApi[i].correct_answer;
             const incrementScoreTrue = () => {  
                 
-                    if(buttTrueB.innerText === correctAnsBoo){                        
-                        // console.log("incremento con True") 
-                        score += 1;   
-                        console.log(score);
-                        // let score = JSON.parse(localStorage.getItem("score"));
-                        // scoreStorage();
-                        playerScore.innerText = `${score}`;                        
-                            
-                    }                                               
+                if (buttTrueB.innerText === correctAnsBoo) {                    
+                    score += 1;                                       
+                    playerScore.innerText = `${score}`;
+                }
                 
             }            
             
@@ -281,18 +234,11 @@ const letsGo = () => {
 
 const hiddenAll = () => {
     showtimeForm.setAttribute("class","hidden");
-    scoreDivContainer.removeAttribute("class","hidden");
-    
+    scoreDivContainer.removeAttribute("class","hidden");    
 }
 
 const returnGame = () => {    
     location.reload();    
 }
 
-
-
-
 triviaForm.addEventListener("submit",getApiData);
-
-
-

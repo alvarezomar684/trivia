@@ -8,12 +8,8 @@ button {
 }
 
 body {
-    background-image: url(/img/fondo\ 5.jpg);
-    /* background-repeat: repeat-y; */
-    /* background-repeat: no-repeat;
-    background-size: 100%; */
-    color: white;
-    
+    background-image: url(/img/fondo\ 5.jpg);    
+    color: white;    
 }
 
 .container {
@@ -23,27 +19,23 @@ body {
     height: 1000px;
     width: 700px;
     margin: 0px auto;
-    margin-top: 100px;
-    /* background-color: white; */
+    margin-top: 100px;    
 }
 
-.title {
-    /* border: 2px solid pink; */
+.title {    
     margin: 0px auto;
     font-size: 50px;
     text-transform: uppercase;
 }
 
-#trivia {
-    /* border: 2px solid white; */
+#trivia {    
     width: 340px;
     height: 700px;
     margin-top: 100px;  
     display: flex;  
     flex-direction: column;
     justify-content: space-between;
-    margin: 0px auto;
-    
+    margin: 0px auto;    
 }
 
 .section {
@@ -75,8 +67,7 @@ body {
     font-size: 17px;
     color: white;
     text-transform: uppercase;    
-    font-family: 'Viaoda Libre', cursive;
-    
+    font-family: 'Viaoda Libre', cursive;    
 }
 
 #trivia > button {
@@ -88,7 +79,6 @@ body {
     background-color: #34c1c1;
     font-weight: bold;
     border: 2px solid #F0EBCC;
-
 }
 
 .answers {
@@ -103,8 +93,7 @@ body {
 }
 
 footer {
-    margin: 0px auto;
-    /* border: 2px solid red; */
+    margin: 0px auto;    
     text-transform: uppercase;
     font-size:24px;
 }
@@ -118,8 +107,7 @@ footer {
     flex-direction: column;
     justify-content: space-evenly;
     margin: 0px auto;       
-    height: auto;
-    
+    height: auto;    
 }
 
 #showtime > h3 {
@@ -218,8 +206,7 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     align-items: center; 
-    height: auto;   
-    
+    height: auto;    
 }
 
 #score-container > h3 {
@@ -243,13 +230,3 @@ footer {
     border-radius: 10px;
 
 }
-
-
-/* .answers > button:first-child {
-    width: 45%;
-}
-
-.answers > button:nth-child(2) {
-    width: 45%;
-} */
-
