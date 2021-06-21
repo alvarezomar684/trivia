@@ -57,22 +57,13 @@ let getApiData = (event) => {
 
 const letsGo = () => {
 
-//     console.log(questionsApi[0].incorrect_answers[0]);
-// console.log(questionsApi[1].incorrect_answers[1]);
-// console.log(questionsApi[2].incorrect_answers[2]);
     console.log(questionsApi);
     
     triviaForm.setAttribute("class","hidden");
     showtimeForm.removeAttribute("class","hidden");
     
 
-    for(let i=0; i < questionsApi.length; i++){
-        // console.log(i);
-        
-        // console.log(questionsApi[0].type);
-        // console.log(typeof(questionsApi[0].type));
-        // console.log(questionsApi[i].type);       
-        
+    for(let i=0; i < questionsApi.length; i++){       
 
         //Preguntas
         let questions = questionsApi[i].question;
@@ -92,18 +83,13 @@ const letsGo = () => {
         //botones para respuestas
         let typeGame = questionsApi[0].type;
 
-        //Multiples
-
-        // if(typeGame === "0"){
-        //     console.log("tutrifruti")
-        // }
+        //Multiples        
 
         if(typeGame === "multiple"){
 
             console.log()
             //Contenedores de los botones respuesta
-            let incorrectAnswersDivM = questionsApi[0].incorrect_answers;
-            // console.log(incorrectAnswersDiv);
+            let incorrectAnswersDivM = questionsApi[0].incorrect_answers;            
             let divAnsM = document.createElement("div");
             divAnsM.setAttribute("class","div-ans-m");
             divGame.appendChild(divAnsM);            
@@ -114,7 +100,12 @@ const letsGo = () => {
             divAnsM.appendChild(buttCorrAnsM);
             let correctAnswersText = questionsApi[i].correct_answer;
             buttCorrAnsM.innerText = `${correctAnswersText}`;
-            buttCorrAnsM.addEventListener("click", () => incrementScoreCorrect ()); 
+            buttCorrAnsM.addEventListener("click", () => incrementScoreCorrect ());
+            buttCorrAnsM.addEventListener("click", () => newStylesBCAM ());
+
+            const newStylesBCAM = () => {                
+                buttCorrAnsM.style.backgroundColor = "#34c147"
+            }
             
 
             //Botones Respuestas incorrectas
@@ -123,7 +114,12 @@ const letsGo = () => {
                 buttIncAnsM.setAttribute("class","butt-inc-ans-m");
                 divAnsM.appendChild(buttIncAnsM);
                 let incorrectAnswersText = questionsApi[i].incorrect_answers[j];
-                buttIncAnsM.innerText = `${incorrectAnswersText}`; 
+                buttIncAnsM.innerText = `${incorrectAnswersText}`;
+                buttIncAnsM.addEventListener("click", () => newStylesBIAM ());
+
+                const newStylesBIAM = () => {
+                    buttIncAnsM.style.backgroundColor = "#34c147"   
+                }
                 
                 //Ocultando botones de mas
                 // console.log(buttIncAnsM.innerText);
@@ -138,8 +134,7 @@ const letsGo = () => {
 
             let correctAnsMul = questionsApi[i].correct_answer; 
 
-            const incrementScoreCorrect = () => {               
-                
+            const incrementScoreCorrect = () => {            
                 
                 if(buttCorrAnsM.innerText === correctAnsMul){
                     
@@ -148,11 +143,9 @@ const letsGo = () => {
                     console.log(score);
                     // let score = JSON.parse(localStorage.getItem("score"));
                     // scoreStorage();
-                    playerScore.innerText = `${score}`;
-                    
+                    playerScore.innerText = `${score}`;                    
                         
-                }
-                                           
+                }                                           
             
         }
             
@@ -160,43 +153,26 @@ const letsGo = () => {
 
         } if (typeGame === "boolean") {
 
-            //GENERAR DE FORMA AUTOMATICA LOS BOTONES Y SU TEXTO PARA RESOLVER PROBLEMA DE COMBINACION MULT Y BOOL
-            //Contenedores de los botones respuesta
-            // console.log("truefalse")            
             
+            //Contenedores de los botones respuesta            
             let divAnsB = document.createElement("div");
             divAnsB.setAttribute("class","div-ans-b");
             divGame.appendChild(divAnsB);
 
             //Botones Respuesta incorrecta
-
             let incorrectAnswersDivB = questionsApi[i].incorrect_answers;
-
             for(let j=0; j < incorrectAnswersDivB.length; j++){
                 let buttIncAnsB = document.createElement("button");
                 buttIncAnsB.setAttribute("class","butt-inc-ans-b");
                 divAnsB.appendChild(buttIncAnsB);
                 let incorrectAnswersText = questionsApi[i].incorrect_answers[j];
-                buttIncAnsB.innerText = `${incorrectAnswersText}`;                
+                buttIncAnsB.innerText = `${incorrectAnswersText}`; 
+                buttIncAnsB.addEventListener("click", () => newStylesBIAB ());
                 
-                
-            }
-
-
-
-            //Botones Respuesta correcta
-
-            // let correctAnswersDivB = questionsApi[i].correct_answer;
-
-            // for(let k=0; k < correctAnswersDivB.length; k++){
-            //     let buttCorAnsB = document.createElement("button");
-            //     buttCorAnsB.setAttribute("class","butt-cor-ans-b");
-            //     divAnsB.appendChild(buttCorAnsB);
-            //     let correctAnswersText = questionsApi[i].correct_answer[k];
-            //     buttCorAnsB.innerText = `${correctAnswersText}`;                
-                
-                
-            // }
+                const newStylesBIAB = () => {
+                    buttIncAnsB.style.backgroundColor = "#34c147"   
+                }
+            }            
 
             //boton respuesta correcta
             let buttTrueB = document.createElement("button");
@@ -204,91 +180,35 @@ const letsGo = () => {
             divAnsB.appendChild(buttTrueB);
             let correctAnswersText = questionsApi[i].correct_answer;
             buttTrueB.innerText = `${correctAnswersText}`;
-            buttTrueB.addEventListener("click", () => incrementScoreTrue ()); 
-
-
-
-
+            buttTrueB.addEventListener("click", () => incrementScoreTrue ());
+            buttTrueB.addEventListener("click", () => newStylesBTB ());
             
-            // //Boton Respuesta True
-            // let buttTrueB = document.createElement("button");
-            // buttTrueB.setAttribute("class","butt-true-b");
-            // divAnsB.appendChild(buttTrueB);            
-            // buttTrueB.innerText = `True`;  
-            // buttTrueB.addEventListener("click", () => incrementScoreTrue ());         
+            const newStylesBTB = () => {
+                buttTrueB.style.backgroundColor = "#34c147"  
+            }
+            
 
-            // //Boton Respuesta False
-            // let buttFalseB = document.createElement("button");
-            // buttFalseB.setAttribute("class","butt-false-b");
-            // divAnsB.appendChild(buttFalseB);            
-            // buttFalseB.innerText = `False`;
-            // buttFalseB.addEventListener("click", () => incrementScoreFalse ());
-
-            let correctAnsBoo = questionsApi[i].correct_answer;   
-
-            // console.log(buttTrueB.innerText);
-            // console.log(buttFalseB.innerText);
-            console.log(correctAnsBoo);
-            // console.log(typeof(correctAnsBoo));
-
-            // console.log(typeof(buttTrueB.innerText));
-            // console.log(typeof(buttFalseB.innerText));
+            let correctAnsBoo = questionsApi[i].correct_answer;       
+            
+            
 
 
-            const incrementScoreTrue = () => {               
+            const incrementScoreTrue = () => {  
                 
-                
-                    if(buttTrueB.innerText === correctAnsBoo){
-                        
+                    if(buttTrueB.innerText === correctAnsBoo){                        
                         // console.log("incremento con True") 
                         score += 1;   
                         console.log(score);
                         // let score = JSON.parse(localStorage.getItem("score"));
                         // scoreStorage();
-                        playerScore.innerText = `${score}`;
-                        
+                        playerScore.innerText = `${score}`;                        
                             
-                    }
-                                               
+                    }                                               
                 
-            }
-
-            // const incrementScoreFalse = () => {
-                  
-                
-            //         if(buttFalseB.innerText === correctAnsBoo){
-                                       
-            //             // console.log("incremento con false")
-            //             score += 1;   
-            //             console.log(score);
-            //             // scoreStorage();
-            //             playerScore.innerText = `${score}`;
-                            
-            //         }
-                                               
-                        
-            // }
-
-
-
-         
-
-            
+            }            
             
         }
-
         
-
-       
-                 
-            
-            
-        
-        
-
-        //True False
-
-        //boolean //string
     }
     
     //Boton Resultados
@@ -310,13 +230,9 @@ const letsGo = () => {
 
     //Boton Regreso al juego
     let playAgain = document.getElementById("play-again");
-    playAgain.addEventListener("click", () => returnGame ());
-
-    
+    playAgain.addEventListener("click", () => returnGame ());    
 
 }
-
-
 
 const hiddenAll = () => {
     showtimeForm.setAttribute("class","hidden");
@@ -328,7 +244,10 @@ const returnGame = () => {
     location.reload();    
 }
 
-console.log(score);
+
+
+
+
 
 
 
